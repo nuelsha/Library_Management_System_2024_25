@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "ES6",                      // Set the target JavaScript version (ES6 or higher)
+      "module": "commonjs",                  // Use commonjs module resolution
+      "strict": true,                        // Enable strict mode for better type safety
+      "esModuleInterop": true,               // Ensure compatibility with ES modules
+      "skipLibCheck": true,                  // Skip type checking of declaration files (faster)
+      "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
+      "experimentalDecorators": true,        // Enable decorators (necessary for NestJS)
+      "emitDecoratorMetadata": true,         // Enable metadata generation for decorators
+      "outDir": "./dist",                    // Output directory for compiled files
+      "baseUrl": "./",                       // Base directory to resolve non-relative modules
+      "paths": {
+        "@/*": ["src/*"]                     // Alias for easier imports from 'src' folder
+    }
+    },
+    "include": ["src/**/*"],                 // Include all files in the 'src' folder
+    "exclude": ["node_modules", "dist"]      // Exclude 'node_modules' and 'dist' folders
+}
