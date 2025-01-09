@@ -2,11 +2,10 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { BooksModule } from './books/books.module';
-import { BorrowingModule } from './borrowing/borrowing.module';
-import { NotificationsModule } from './notifications/notifications.module';
-import { ReportingModule } from './reporting/reporting.module';
+import { UsersModule } from './module/users.module';
+import { BooksModule } from './module/books.module';
+import { BorrowingModule } from './module/borrowing.module';
+import { NotificationsModule } from './module/notifications.module';
 import { DatabaseModule } from './database/database.module';
 
 @Module({
@@ -16,10 +15,8 @@ import { DatabaseModule } from './database/database.module';
     BooksModule,
     BorrowingModule,
     NotificationsModule,
-    ReportingModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-
 export class AppModule {}

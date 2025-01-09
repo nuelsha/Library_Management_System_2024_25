@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { User } from './users.schema';
+import { UsersService } from '../service/users.service';
+import { User } from '../schema/users.schema';
 
 @Controller('users')
 export class UsersController {

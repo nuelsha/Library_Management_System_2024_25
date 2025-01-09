@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { BorrowingRecordController } from './borrowing.controller';
-import { BorrowingRecordService } from './borrowing.service';
-import { BorrowingRecord, BorrowingRecordSchema } from './borrowing.schema';
+import { BorrowingRecordController } from '../controller/borrowing.controller';
+import { BorrowingRecordService } from '../service/borrowing.service';
+import {
+  BorrowingRecord,
+  BorrowingRecordSchema,
+} from '../schema/borrowing.schema';
 
 @Module({
   imports: [

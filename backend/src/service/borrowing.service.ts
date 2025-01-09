@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Types } from 'mongoose';
-import { BorrowingRecord } from './borrowing.schema';
-import { CreateBorrowingRecordDto } from './create-borrowing-record.dto';
+import { BorrowingRecord } from '../schema/borrowing.schema';
+import { CreateBorrowingRecordDto } from '../dto/create-borrowing-record.dto';
 
 @Injectable()
 export class BorrowingRecordService {

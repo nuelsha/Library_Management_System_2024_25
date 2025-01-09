@@ -7,8 +7,8 @@ import {
   Body,
   Param,
 } from '@nestjs/common';
-import { BookService } from '../books/books.service';
-import { Book } from '../books/books.schema';
+import { BookService } from '../service/books.service';
+import { Book } from '../schema/books.schema';
 
 @Controller('books')
 export class BookController {

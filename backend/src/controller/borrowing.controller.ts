@@ -7,9 +7,9 @@ import {
   Put,
   Delete,
 } from '@nestjs/common';
-import { BorrowingRecordService } from '../borrowing/borrowing.service';
-import { CreateBorrowingRecordDto } from '../borrowing/create-borrowing-record.dto';
-import { BorrowingRecord } from '../borrowing/borrowing.schema';
+import { BorrowingRecordService } from '../service/borrowing.service';
+import { CreateBorrowingRecordDto } from '../dto/create-borrowing-record.dto';
+import { BorrowingRecord } from '../schema/borrowing.schema';
 
 @Controller('borrowing-records')
 export class BorrowingRecordController {
