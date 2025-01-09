@@ -1,13 +1,12 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import mongoose from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document, Schema as MongooseSchema } from 'mongoose';
 
 @Schema()
 export class BorrowingRecord extends Document {
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true })
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'User', required: true })
   userId: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true })
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Book', required: true })
   bookId: string;
 
   @Prop({ required: true })
@@ -16,7 +15,7 @@ export class BorrowingRecord extends Document {
   @Prop()
   returnDate: Date;
 
-  @Prop({ default: 'Pending', enum: ['Pending', 'Approved', 'Rejected'] })
+  @Prop({ enum: ['Pending', 'Approved', 'Rejected'], default: 'Pending' })
   approvalStatus: string;
 }
 
