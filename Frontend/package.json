@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && node fix-imports.mjs", 
+    "start": "http-server ./dist -p 3001 --cors" ,
+    "watch": "tsc -w",
+    "dev": "concurrently \"npm run watch\" \"npm run start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1",
+    "replace-in-file": "^8.3.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.3.3"
+  }
+}

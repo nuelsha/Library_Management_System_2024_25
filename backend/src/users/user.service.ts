@@ -1,32 +1,45 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import * as bcrypt from 'bcryptjs';
 import { CreateUserDto } from '../dto/create-user.dto';
-
-interface User {
-  id: number;
-  username: string;
-  password: string;
-  roles: string[];
-}
+import { User, UserDocument } from '../schema/user.schema';
 
 @Injectable()
 export class UsersService {
-  private users: User[] = [];
+  constructor(
+    @InjectModel(User.name) private userModel: Model<UserDocument>
+  ) {}
+
+  async findByEmail(email: string): Promise<User | null> {
+    return this.userModel.findOne({ email }).exec();
+  }
 
   async findOne(username: string): Promise<User | undefined> {
-    return this.users.find((user) => user.username === username);
+    return this.userModel.findOne({ username }).exec();
   }
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
-    const { username, password, roles } = createUserDto;
+    const existingUser = await this.userModel.findOne({
+      $or: [
+        { email: createUserDto.email },
+        { username: createUserDto.username }
+      ]
+    }).exec();
+
+    if (existingUser) {
+      throw new Error('User already exists');
+    }
+
+    const { username, password, email } = createUserDto;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = {
-      id: this.users.length + 1,
+    
+    const newUser = new this.userModel({
       username,
+      email,
       password: hashedPassword,
-      roles,
-    };
-    this.users.push(newUser);
-    return newUser;
+    });
+
+    return newUser.save();
   }
 }

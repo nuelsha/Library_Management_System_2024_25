@@ -1,27 +1,27 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './module/users.module';
 import { BooksModule } from './module/books.module';
 import { BorrowingModule } from './module/borrowing.module';
 import { NotificationsModule } from './module/notifications.module';
 import { DatabaseModule } from './database/database.module';
-
-// Import your custom AuthModule
 import { AuthModule } from './module/auth/auth.module';
-
-// Import your custom UsersModule (if this is different from the original UsersModule)
-import { UsersModule as CustomUsersModule } from './users/users.module';
+import { UsersModule } from './users/users.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
     DatabaseModule,
-    UsersModule, // Original UsersModule
+    UsersModule,
     BooksModule,
     BorrowingModule,
     NotificationsModule,
-    AuthModule, // Your custom AuthModule for authentication
-    CustomUsersModule, // Your custom UsersModule, if different from the original
+    AuthModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'dist'), 
+      exclude: ['/api*'], 
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

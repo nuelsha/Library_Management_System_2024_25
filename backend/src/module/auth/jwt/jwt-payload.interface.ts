@@ -1,6 +1,5 @@
-
 export interface JwtPayload {
+    email: string;
     username: string;
-    sub: number;  // 'sub' is typically the user ID, but you can modify as needed
-  }
-  
+    sub: string | number;
+}

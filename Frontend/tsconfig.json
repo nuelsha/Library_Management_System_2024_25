@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "ES2015",
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "allowJs": true,
+    "declaration": false
+  },
+  "include": ["src/**/*"]
+}

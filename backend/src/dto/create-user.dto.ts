@@ -1,6 +1,16 @@
+import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
+
 export class CreateUserDto {
-    username!: string;
-    password!: string;
-    roles!: string[];
-    // Any other user fields you need to capture during registration
+    @IsString()
+    @IsNotEmpty()
+    username: string;
+
+    @IsEmail()
+    @IsNotEmpty()
+    email: string;
+
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(6)
+    password: string;
 }

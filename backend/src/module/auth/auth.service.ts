@@ -3,9 +3,10 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 import { UsersService } from '../../users/user.service';
-import { JwtPayload } from '../../module/auth/jwt/jwt-payload.interface';
+import { JwtPayload } from './jwt/jwt-payload.interface';
 import { CreateUserDto } from '../../dto/create-user.dto';
-import { User } from '../../users/user.entity';  // Ensure User is imported
+import { LoginUserDto } from '../../dto/login-user.dto';
+import { User } from '../../users/user.entity';
 
 @Injectable()
 export class AuthService {
@@ -14,12 +15,12 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async register(createUserDto: CreateUserDto): Promise<User> {  // Correct return type
+  async register(createUserDto: CreateUserDto): Promise<User> {  
     return this.usersService.createUser(createUserDto);
   }
 
-  async validateUser(username: string, password: string): Promise<any> {
-    const user = await this.usersService.findOne(username);
+  async validateUser(email: string, password: string): Promise<any> {
+    const user = await this.usersService.findByEmail(email);
     if (user && bcrypt.compareSync(password, user.password)) {
       const { password, ...result } = user;
       return result;
@@ -27,13 +28,18 @@ export class AuthService {
     return null;
   }
 
-  async login(loginUserDto: { username: string; password: string }): Promise<{ access_token: string }> {  // Correct return type
-    const user = await this.validateUser(loginUserDto.username, loginUserDto.password);
+  async login(loginUserDto: LoginUserDto): Promise<{ access_token: string }> {  
+    const user = await this.validateUser(loginUserDto.email, loginUserDto.password);
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const payload: JwtPayload = { username: user.username, sub: user.id };
+    const payload: JwtPayload = { 
+      email: user.email,
+      sub: user.id,
+      username: user.username 
+    };
+    
     return {
       access_token: this.jwtService.sign(payload),
     };
