@@ -37,7 +37,11 @@ export class BorrowingRecordService {
 
       return await borrowingRecord.save();
     } catch (error) {
-      throw new Error(error);
+      if (error instanceof Error) {
+        throw new Error(error.message); // Accessing the message property of the error
+      } else {
+        throw new Error('An unknown error occurred');
+      }
     }
   }
 
@@ -48,7 +52,11 @@ export class BorrowingRecordService {
         .populate('userId')
         .populate('bookId');
     } catch (error) {
-      throw new Error('Failed to retrieve borrowing records');
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error('Failed to retrieve borrowing records');
+      }
     }
   }
 
@@ -63,7 +71,11 @@ export class BorrowingRecordService {
       }
       return record;
     } catch (error) {
-      throw error;
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error('An unknown error occurred');
+      }
     }
   }
 
@@ -76,7 +88,12 @@ export class BorrowingRecordService {
       }
       return deletedRecord;
     } catch (error) {
-      throw new Error('Failed to delete borrowing record');
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error('Failed to delete borrowing record');
+      }
     }
   }
 }
+
