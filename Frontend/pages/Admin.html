@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles/admin.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1>Book Library</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">User</a>
+        <a href="#">Admin</a>
+      </nav>
+    </header>
+
+    <main class="main-container">
+      <h2>Admin Dashboard</h2>
+      <button class="add-book-btn">Add New Book</button>
+
+      <table class="books-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>To Kill a Mockingbird</td>
+            <td>Harper Lee</td>
+            <td>Fiction</td>
+            <td>
+              <a href="#" class="edit-action">Edit</a>
+              <a href="#" class="delete-action">Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <td>1984</td>
+            <td>George Orwell</td>
+            <td>Science Fiction</td>
+            <td>
+              <a href="#" class="edit-action">Edit</a>
+              <a href="#" class="delete-action">Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Pride and Prejudice</td>
+            <td>Jane Austen</td>
+            <td>Romance</td>
+            <td>
+              <a href="#" class="edit-action">Edit</a>
+              <a href="#" class="delete-action">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="view-users-btn">View User Details</button>
+    </main>
+  </body>
+</html>

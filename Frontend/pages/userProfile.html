@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../styles/userProfile.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1>Book Library</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">User</a>
+        <a href="#">Admin</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="profile-section">
+        <h1>User Profile</h1>
+        <h2>Borrowing History</h2>
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Book Title</th>
+              <th>Borrow Date</th>
+              <th>Return Date</th>
+            </tr>
+          </thead>
+          <tbody id="borrowingHistory">
+            <tr>
+              <td>To Kill a Mockingbird</td>
+              <td>2023-05-01</td>
+              <td>2023-05-15</td>
+            </tr>
+            <tr>
+              <td>1984</td>
+              <td>2023-05-10</td>
+              <td>2023-05-24</td>
+            </tr>
+          </tbody>
+        </table>
+        <button id="viewNotifications" class="button">
+          View Notifications
+        </button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

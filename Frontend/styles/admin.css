@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: black;
+  color: white;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.navbar nav a:hover {
+  text-decoration: underline;
+}
+
+.main-container {
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.add-book-btn,
+.view-users-btn {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 15px 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.add-book-btn:hover,
+.view-users-btn:hover {
+  background-color: #333;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.books-table th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+}
+.books-table td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 10px;
+}
+
+.books-table th {
+  background-color: #f4f4f4;
+}
+
+.books-table td a {
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.edit-action {
+  color: blue;
+}
+
+.delete-action {
+  color: red;
+}

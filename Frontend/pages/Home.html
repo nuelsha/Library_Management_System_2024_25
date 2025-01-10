@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Library</title>
+    <link rel="stylesheet" href="../styles/home.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1>Book Library</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">User</a>
+        <a href="#">Admin</a>
+      </nav>
+    </header>
+
+    <main class="main-container">
+      <h2>Available Books</h2>
+      <div class="filter-container">
+        <input type="text" id="search-bar" placeholder="Search books..." />
+        <select id="category-dropdown">
+          <option value="all">All Categories</option>
+          <option value="fiction">Fiction</option>
+          <option value="science-fiction">Science Fiction</option>
+          <option value="romance">Romance</option>
+        </select>
+      </div>
+
+      <section id="books-container" class="books-container">
+        <div class="book-card">
+          <div class="book-details">
+            <h3>To Kill a Mockingbird</h3>
+            <p>by Harper Lee</p>
+            <p>Category: Fiction</p>
+          </div>
+          <div class="button-container">
+            <button
+              class="details-btn"
+              data-title="To Kill a Mockingbird"
+              aria-label="View details of To Kill a Mockingbird"
+              onclick="viewDetails('To Kill a Mockingbird')"
+            >
+              Details
+            </button>
+            <button
+              class="borrow-btn"
+              data-title="To Kill a Mockingbird"
+              aria-label="Borrow To Kill a Mockingbird"
+              onclick="borrowBook('To Kill a Mockingbird')"
+            >
+              Borrow
+            </button>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-details">
+            <h3>1984</h3>
+            <p>by George Orwell</p>
+            <p>Category: Science Fiction</p>
+          </div>
+          <div class="button-container">
+            <button
+              class="details-btn"
+              data-title="1984"
+              aria-label="View details of 1984"
+              onclick="viewDetails('1984')"
+            >
+              Details
+            </button>
+            <button
+              class="borrow-btn"
+              data-title="1984"
+              aria-label="Borrow 1984"
+              onclick="borrowBook('1984')"
+            >
+              Borrow
+            </button>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-details">
+            <h3>Pride and Prejudice</h3>
+            <p>by Jane Austen</p>
+            <p>Category: Romance</p>
+          </div>
+          <div class="button-container">
+            <button
+              class="details-btn"
+              data-title="Pride and Prejudice"
+              aria-label="View details of Pride and Prejudice"
+              onclick="viewDetails('Pride and Prejudice')"
+            >
+              Details
+            </button>
+            <button
+              class="borrow-btn"
+              data-title="Pride and Prejudice"
+              aria-label="Borrow Pride and Prejudice"
+              onclick="borrowBook('Pride and Prejudice')"
+            >
+              Borrow
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.ts" type="module"></script>
+  </body>
+</html>
