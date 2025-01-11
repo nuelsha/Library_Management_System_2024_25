@@ -1,72 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Library Management System</title>
-    
+
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <!-- Custom CSS -->
-    <link href="/src/styles/main.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+    <link href="/src/styles/main.css" rel="stylesheet" />
+  </head>
+  <body class="bg-light">
     <!-- Navbar placeholder -->
     <div id="navbar"></div>
 
     <!-- Main content -->
     <main class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="card shadow">
-                    <div class="card-body p-4">
-                        <h2 class="text-center mb-4">Login</h2>
-                        <form id="loginForm">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" required>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-dark">Login</button>
-                            </div>
-                            <p class="text-center mt-3">
-                                Don't have an account? 
-                                <a href="/pages/auth/signup.html" class="text-dark">Sign Up</a>
-                            </p>
-                        </form>
-                    </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="card shadow">
+            <div class="card-body p-4">
+              <h2 class="text-center mb-4">Login</h2>
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    required
+                  />
                 </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    required
+                  />
+                </div>
+                <div class="d-grid">
+                  <button
+                    type="button"
+                    class="btn btn-dark"
+                    onclick="location.href='../../pages/books/index.html'"
+                  >
+                    Login
+                  </button>
+                </div>
+                <p class="text-center mt-3">
+                  Don't have an account?
+                  <a href="../../pages/auth/signup.html" class="text-dark"
+                    >Sign Up</a
+                  >
+                </p>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Library Management System</h5>
-                    <p>© 2024-2025. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h5>Contact</h5>
-                    <p>Email: support@library.com</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Library Management System</h5>
+            <p>© 2024-2025. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <h5>Contact</h5>
+            <p>Email: support@library.com</p>
+          </div>
         </div>
+      </div>
     </footer>
 
     <!-- Loading Spinner -->
     <div id="loadingSpinner" class="loading-spinner d-none">
-        <div class="spinner-border text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+      <div class="spinner-border text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
 
     <!-- Alert Container -->
@@ -75,14 +99,14 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Layout Component -->
-    <script src="/dist/components/layout.js" type="module"></script>
+    <script src="../../dist/components/layout.js" type="module"></script>
     <!-- Utils -->
-    <script src="/dist/utils/auth.js" type="module"></script>
-    <script src="/dist/utils/routes.js" type="module"></script>
-    <script src="/dist/utils/ui.js" type="module"></script>
-    <script src="/dist/services/api.js" type="module"></script>
+    <script src="../../dist/utils/auth.js" type="module"></script>
+    <script src="../../dist/utils/routes.js" type="module"></script>
+    <script src="../../dist/utils/ui.js" type="module"></script>
+    <script src="../../dist/services/api.js" type="module"></script>
 
     <!-- Page Specific Script -->
-    <script src="/dist/pages/auth/login.js" type="module"></script>
-</body>
+    <script src="../../dist/pages/auth/login.js" type="module"></script>
+  </body>
 </html>

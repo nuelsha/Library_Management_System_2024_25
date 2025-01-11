@@ -1,72 +1,72 @@
-import { LoginData, RegisterData, User, Book } from './types';
+import { LoginData, RegisterData, User, Book } from "./types";
 
-const API_URL = 'http://localhost:3000';
+const API_URL = "http://localhost:5000";
 
 export class ApiService {
-    private static token: string | null = null;
+  private static token: string | null = null;
 
-    static setToken(token: string) {
-        this.token = token;
-        localStorage.setItem('token', token);
+  static setToken(token: string) {
+    this.token = token;
+    localStorage.setItem("token", token);
+  }
+
+  static getToken(): string | null {
+    if (!this.token) {
+      this.token = localStorage.getItem("token");
+    }
+    return this.token;
+  }
+
+  static clearToken() {
+    this.token = null;
+    localStorage.removeItem("token");
+  }
+
+  private static async fetchApi(endpoint: string, options: RequestInit = {}) {
+    const token = this.getToken();
+    if (token) {
+      options.headers = {
+        ...options.headers,
+        Authorization: `Bearer ${token}`,
+      };
     }
 
-    static getToken(): string | null {
-        if (!this.token) {
-            this.token = localStorage.getItem('token');
-        }
-        return this.token;
+    const response = await fetch(`${API_URL}${endpoint}`, {
+      ...options,
+      headers: {
+        "Content-Type": "application/json",
+        ...options.headers,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    static clearToken() {
-        this.token = null;
-        localStorage.removeItem('token');
-    }
+    return response.json();
+  }
 
-    private static async fetchApi(endpoint: string, options: RequestInit = {}) {
-        const token = this.getToken();
-        if (token) {
-            options.headers = {
-                ...options.headers,
-                'Authorization': `Bearer ${token}`
-            };
-        }
+  static async login(data: LoginData): Promise<{ access_token: string }> {
+    const response = await this.fetchApi("/auth/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+    this.setToken(response.access_token);
+    return response;
+  }
 
-        const response = await fetch(`${API_URL}${endpoint}`, {
-            ...options,
-            headers: {
-                'Content-Type': 'application/json',
-                ...options.headers
-            }
-        });
+  static async register(data: RegisterData): Promise<User> {
+    return this.fetchApi("/auth/register", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+  }
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+  static async getBooks(): Promise<Book[]> {
+    return this.fetchApi("/books");
+  }
 
-        return response.json();
-    }
-
-    static async login(data: LoginData): Promise<{ access_token: string }> {
-        const response = await this.fetchApi('/auth/login', {
-            method: 'POST',
-            body: JSON.stringify(data)
-        });
-        this.setToken(response.access_token);
-        return response;
-    }
-
-    static async register(data: RegisterData): Promise<User> {
-        return this.fetchApi('/auth/register', {
-            method: 'POST',
-            body: JSON.stringify(data)
-        });
-    }
-
-    static async getBooks(): Promise<Book[]> {
-        return this.fetchApi('/books');
-    }
-
-    static async getMembers(): Promise<User[]> {
-        return this.fetchApi('/users');
-    }
+  static async getMembers(): Promise<User[]> {
+    return this.fetchApi("/users");
+  }
 }

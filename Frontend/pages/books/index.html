@@ -1,147 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Books - Library Management System</title>
-    
+
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <!-- Custom CSS -->
-    <link href="/src/styles/main.css" rel="stylesheet">
-</head>
-<body>
+    <link href="../../src/styles/main.css" rel="stylesheet" />
+  </head>
+  <body>
     <!-- Navbar placeholder -->
     <div id="navbar"></div>
 
     <!-- Main content -->
     <main class="container py-4">
-        <!-- Hero Section -->
-        <div class="bg-dark text-white p-5 rounded-3 mb-4">
-            <div class="container-fluid py-3">
-                <h1 class="display-5 fw-bold">Welcome to Our Library</h1>
-                <p class="col-md-8 fs-4">Discover thousands of books in our collection. Start exploring now!</p>
-                <div class="input-group mt-4" style="max-width: 600px;">
-                    <input type="text" class="form-control form-control-lg" id="heroSearch" placeholder="Search books by title, author, or ISBN...">
-                    <button class="btn btn-light btn-lg" type="button" id="heroSearchBtn">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
-            </div>
+      <!-- Hero Section -->
+      <div class="bg-dark text-white p-5 rounded-3 mb-4">
+        <div class="container-fluid py-3">
+          <h1 class="display-5 fw-bold">Welcome to Our Library</h1>
+          <p class="col-md-8 fs-4">
+            Discover thousands of books in our collection. Start exploring now!
+          </p>
+          <div class="input-group mt-4" style="max-width: 600px">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="heroSearch"
+              placeholder="Search books by title, author, or ISBN..."
+            />
+            <button
+              class="btn btn-light btn-lg"
+              type="button"
+              id="heroSearchBtn"
+            >
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
         </div>
+      </div>
 
-        <!-- Filters Section -->
-        <div class="row mb-4">
-            <div class="col-md-3">
-                <select class="form-select" id="categoryFilter">
-                    <option value="">All Categories</option>
-                    <!-- Categories will be dynamically added here -->
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-select" id="availabilityFilter">
-                    <option value="all">All Books</option>
-                    <option value="available">Available Now</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-select" id="sortFilter">
-                    <option value="relevance">Relevance</option>
-                    <option value="newest">Newest First</option>
-                    <option value="title">Title A-Z</option>
-                    <option value="author">Author A-Z</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <div class="d-flex justify-content-end">
-                    <div class="btn-group">
-                        <button class="btn btn-outline-dark active" id="gridView">
-                            <i class="bi bi-grid"></i>
-                        </button>
-                        <button class="btn btn-outline-dark" id="listView">
-                            <i class="bi bi-list"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+      <!-- Filters Section -->
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <select class="form-select" id="categoryFilter">
+            <option value="">All Categories</option>
+            <!-- Categories will be dynamically added here -->
+          </select>
         </div>
-
-        <!-- Books Grid -->
-        <div class="row" id="booksGrid">
-            <!-- Books will be dynamically added here -->
+        <div class="col-md-3">
+          <select class="form-select" id="availabilityFilter">
+            <option value="all">All Books</option>
+            <option value="available">Available Now</option>
+          </select>
         </div>
-
-        <!-- Books List (Hidden by default) -->
-        <div class="d-none" id="booksList">
-            <div class="list-group">
-                <!-- Books will be dynamically added here -->
+        <div class="col-md-3">
+          <select class="form-select" id="sortFilter">
+            <option value="relevance">Relevance</option>
+            <option value="newest">Newest First</option>
+            <option value="title">Title A-Z</option>
+            <option value="author">Author A-Z</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <div class="d-flex justify-content-end">
+            <div class="btn-group">
+              <button class="btn btn-outline-dark active" id="gridView">
+                <i class="bi bi-grid"></i>
+              </button>
+              <button class="btn btn-outline-dark" id="listView">
+                <i class="bi bi-list"></i>
+              </button>
             </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Pagination -->
-        <nav aria-label="Books pagination" class="mt-4">
-            <ul class="pagination justify-content-center" id="pagination">
-                <!-- Pagination will be dynamically added here -->
-            </ul>
-        </nav>
+      <!-- Books Grid -->
+      <div class="row" id="booksGrid">
+        <!-- Books will be dynamically added here -->
+      </div>
+
+      <!-- Books List (Hidden by default) -->
+      <div class="d-none" id="booksList">
+        <div class="list-group">
+          <!-- Books will be dynamically added here -->
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <nav aria-label="Books pagination" class="mt-4">
+        <ul class="pagination justify-content-center" id="pagination">
+          <!-- Pagination will be dynamically added here -->
+        </ul>
+      </nav>
     </main>
 
     <!-- Book Preview Modal -->
     <div class="modal fade" id="bookPreviewModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="previewTitle"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="previewTitle"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img
+                  id="previewImage"
+                  src=""
+                  alt=""
+                  class="img-fluid rounded"
+                />
+              </div>
+              <div class="col-md-8">
+                <h6 class="text-muted" id="previewAuthor"></h6>
+                <p id="previewDescription"></p>
+                <div class="mb-3">
+                  <strong>ISBN:</strong> <span id="previewIsbn"></span>
                 </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img id="previewImage" src="" alt="" class="img-fluid rounded">
-                        </div>
-                        <div class="col-md-8">
-                            <h6 class="text-muted" id="previewAuthor"></h6>
-                            <p id="previewDescription"></p>
-                            <div class="mb-3">
-                                <strong>ISBN:</strong> <span id="previewIsbn"></span>
-                            </div>
-                            <div class="mb-3">
-                                <strong>Available:</strong> <span id="previewAvailable"></span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="mb-3">
+                  <strong>Available:</strong>
+                  <span id="previewAvailable"></span>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="#" class="btn btn-dark" id="previewDetailsBtn">View Details</a>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <a href="#" class="btn btn-dark" id="previewDetailsBtn"
+              >View Details</a
+            >
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Library Management System</h5>
-                    <p>© 2024-2025. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h5>Contact</h5>
-                    <p>Email: support@library.com</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Library Management System</h5>
+            <p>© 2024-2025. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <h5>Contact</h5>
+            <p>Email: support@library.com</p>
+          </div>
         </div>
+      </div>
     </footer>
 
     <!-- Loading Spinner -->
     <div id="loadingSpinner" class="loading-spinner d-none">
-        <div class="spinner-border text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+      <div class="spinner-border text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
 
     <!-- Alert Container -->
@@ -156,8 +191,8 @@
     <script src="/dist/utils/routes.js" type="module"></script>
     <script src="/dist/utils/ui.js" type="module"></script>
     <script src="/dist/services/api.js" type="module"></script>
-    
+
     <!-- Page Specific Script -->
     <script src="/dist/pages/books/index.js" type="module"></script>
-</body>
+  </body>
 </html>
