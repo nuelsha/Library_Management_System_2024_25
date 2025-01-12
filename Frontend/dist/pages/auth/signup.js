@@ -1,5 +1,5 @@
-import { ApiService } from '../../services/api.js';
-import { showAlert } from '../../utils/ui.js';
+import { ApiService } from '../../services/api';
+import { showAlert } from '../../utils/ui';
 class SignupPage {
     form;
     constructor() {

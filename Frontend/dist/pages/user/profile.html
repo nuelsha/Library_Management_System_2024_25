@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Library Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/pages/books/index.html">Library Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/books/index.html">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/borrowing/index.html">My Borrowings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/notifications/index.html">Notifications</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/pages/user/profile.html">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="rounded-circle">
+                        </div>
+                        <h5 class="card-title text-center" id="userName">John Doe</h5>
+                        <p class="text-muted text-center" id="userEmail">john@example.com</p>
+                        <button class="btn btn-dark w-100" id="editProfileBtn">Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Profile Information</h5>
+                        <form id="profileForm">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="memberSince" class="form-label">Member Since</label>
+                                <input type="text" class="form-control" id="memberSince" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="totalBorrowings" class="form-label">Total Borrowings</label>
+                                <input type="text" class="form-control" id="totalBorrowings" disabled>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/dist/pages/user/profile.js" type="module"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
-import { ApiService } from '../../services/api.js';
-import { requireAuth } from '../../utils/auth.js';
-import { showAlert } from '../../utils/ui.js';
+import { ApiService } from '../../services/api';
+import { requireAuth } from '../../utils/auth';
+import { showAlert } from '../../utils/ui';
 class BooksPage {
     searchInput = null;
     searchBtn = null;

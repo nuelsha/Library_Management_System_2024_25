@@ -1,6 +1,6 @@
-import { ApiService } from '../../../services/api.js';
-import { requireAdmin } from '../../../utils/auth.js';
-import { formatDate, showAlert, showConfirm } from '../../../utils/ui.js';
+import { ApiService } from '../../../services/api';
+import { requireAdmin } from '../../../utils/auth';
+import { formatDate, showAlert, showConfirm } from '../../../utils/ui';
 class AdminUserDetailPage {
     userId = '';
     user = null;

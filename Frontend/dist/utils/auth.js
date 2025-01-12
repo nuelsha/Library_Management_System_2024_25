@@ -1,4 +1,4 @@
-import { ApiService } from '../services/api.js';
+import { ApiService } from '../services/api';
 export function isAuthenticated() {
     return !!ApiService.getToken();
 }

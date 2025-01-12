@@ -1,5 +1,5 @@
-import { getCurrentUser, isAdmin } from '../utils/auth.js';
-import { Routes } from '../utils/routes.js';
+import { getCurrentUser, isAdmin } from '../utils/auth';
+import { Routes } from '../utils/routes';
 export class Layout {
     static init() {
         this.renderNavbar();

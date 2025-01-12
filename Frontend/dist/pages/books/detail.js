@@ -1,6 +1,6 @@
-import { ApiService } from '../../services/api.js';
-import { requireAuth } from '../../utils/auth.js';
-import { showAlert, showConfirm } from '../../utils/ui.js';
+import { ApiService } from '../../services/api';
+import { requireAuth } from '../../utils/auth';
+import { showAlert, showConfirm } from '../../utils/ui';
 class BookDetailPage {
     bookId = '';
     book = null;

@@ -1,6 +1,6 @@
-import { ApiService } from '../../services/api.js';
-import { redirectToDashboard, setCurrentUser } from '../../utils/auth.js';
-import { showAlert } from '../../utils/ui.js';
+import { ApiService } from '../../services/api';
+import { redirectToDashboard, setCurrentUser } from '../../utils/auth';
+import { showAlert } from '../../utils/ui';
 class LoginPage {
     form;
     constructor() {

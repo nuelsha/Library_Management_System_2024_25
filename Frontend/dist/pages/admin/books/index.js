@@ -1,6 +1,6 @@
-import { ApiService } from '../../../services/api.js';
-import { requireAdmin } from '../../../utils/auth.js';
-import { showAlert, showConfirm } from '../../../utils/ui.js';
+import { ApiService } from '../../../services/api';
+import { requireAdmin } from '../../../utils/auth';
+import { showAlert, showConfirm } from '../../../utils/ui';
 class AdminBooksPage {
     elements = {
         booksList: document.getElementById('booksList'),

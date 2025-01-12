@@ -1,6 +1,6 @@
-import { ApiService } from '../../../services/api.js';
-import { requireAdmin } from '../../../utils/auth.js';
-import { formatDate, showAlert } from '../../../utils/ui.js';
+import { ApiService } from '../../../services/api';
+import { requireAdmin } from '../../../utils/auth';
+import { formatDate, showAlert } from '../../../utils/ui';
 class AdminUsersPage {
     elements = {
         usersList: document.getElementById('usersList'),
